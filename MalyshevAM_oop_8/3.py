@@ -14,8 +14,9 @@ class Vehicle:
     def change_gear(self, gear):
         pass
 
-    def raschet(self):
-        pass
+    def raschet(self, distance, time):
+        speed = distance / time
+        print(f"{self.name} будет ехать со скоростью {speed} км/ч расстояние {distance} км за {time} час")
 
 
 class Car:
@@ -66,3 +67,6 @@ bike = Bike("Yamaha", "Blue", 15000)
 vehicles = (car, bike)
 
 process_vehicles(vehicles)
+
+v = Vehicle("Vehicle", "Black", 10000, 100)
+v.raschet(100, 1)

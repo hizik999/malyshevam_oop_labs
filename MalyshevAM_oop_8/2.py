@@ -17,8 +17,8 @@ class Vehicle:
         print(f"{self.name} is in gear {gear}")
 
     def raschet(self):
-        time_taken = self.distance / self.speed
-        print(f"{self.name} will take {time_taken} hours to cover {self.distance} km")
+        speed = self.distance / self.time
+        print(f"{self.name} будет ехать со скоростью {speed} км/ч расстояние {self.distance} км за {self.time} час")
 
 
 class Car(Vehicle):
@@ -59,6 +59,7 @@ class Bike(Vehicle):
 
 car = Car("Toyota", "Red", 20000)
 bike = Bike("Yamaha", "Blue", 15000)
+v = Vehicle("Vehicle", "Black", 10000, 1, 100, 50)
 
 car.show()
 car.max_speed()
@@ -69,3 +70,5 @@ bike.show()
 bike.max_speed()
 bike.change_gear(2)
 bike.raschet(200)
+
+v.raschet()
