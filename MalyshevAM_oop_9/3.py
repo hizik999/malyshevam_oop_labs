@@ -20,10 +20,10 @@ class Sedan:
         self._engine_type = value
 
     def start_engine(self):
-        print("Engine started in Sedan")
+        print("Двигатель седана запущен.")
 
     def accelerate(self):
-        print("Sedan is accelerating")
+        print("Седан ускоряется.")
 
 
 class SUV:
@@ -57,13 +57,13 @@ class SUV:
         self._cargo_space = value
 
     def start_engine(self):
-        print("Engine started in SUV")
+        print("Двигатель внедорожника запущен.")
 
     def accelerate(self):
-        print("SUV is accelerating")
+        print("Внедорожник ускоряется.")
 
     def brake(self):
-        print("SUV is braking")
+        print("Внедорожник тормозит.")
 
 
 class Hatchback:
@@ -106,35 +106,35 @@ class Hatchback:
         self._transmission = value
 
     def start_engine(self):
-        print("Engine started in Hatchback")
+        print("Двигатель хэтчбека запущен.")
 
     def accelerate(self):
-        print("Hatchback is accelerating")
+        print("Хэтчбек ускоряется.")
 
     def start_transmission(self):
-        print("Transmission started in Hatchback")
+        print("Трансмиссия хэтчбека включена.")
 
 
 class Car(Sedan, SUV, Hatchback):
     def __init__(self, doors, engine_type, cargo_space, transmission):
-        print("Initializing Car...")
+        print("Инициализация автомобиля...")
         Sedan.__init__(self, doors, engine_type)
         SUV.__init__(self, doors, engine_type, cargo_space)
         Hatchback.__init__(self, doors, engine_type, cargo_space, transmission)
-        print("Car initialized")
+        print("Автомобиль инициализирован.")
 
     def drive(self):
-        print("Driving the car:")
         self.start_engine()
         self.start_transmission()
         self.accelerate()
         self.brake()
 
+    def display_info(self):
+        print(f"Двери: {self.doors}, Тип двигателя: {self.engine_type}, Багажное пространство: {self.cargo_space}, Трансмиссия: {self.transmission}")
 
 
-car = Car(4, "Petrol", "Large", "Automatic")
-car.drive()
-print("Doors:", car.doors)
-print("Engine Type:", car.engine_type)
-print("Cargo Space:", car.cargo_space)
-print("Transmission:", car.transmission)
+# Тестирование
+if __name__ == "__main__":
+    car = Car(4, "Бензиновый", "Большой", "Автомат")
+    car.drive()
+    car.display_info()

@@ -7,35 +7,34 @@ class Radio:
         if not self.is_on:
             self.is_on = True
             self.station = 0
-            print("Radio turned on. Station set to 0.")
+            print("Радио включено. Станция 0.")
         else:
-            print("Radio is already on.")
+            print("Радио уже включено.")
 
     def turn_off(self):
         if self.is_on:
             self.is_on = False
-            print("Radio turned off.")
+            print("Радио выключено.")
         else:
-            print("Radio is already off.")
+            print("Радио уже выключено.")
 
     def tune_to_station(self, station_number):
         if self.is_on:
             self.station = station_number
-            print(f"Tuned to station {station_number}.")
+            print(f"Переключено {station_number}.")
         else:
-            print("Cannot tune to station. The radio is off.")
+            print("Не может переключиться. Радио выключено.")
 
 
 # Пример использования класса Radio
-if __name__ == "__main__":
-    # Создаем экземпляр радио
-    radio = Radio()
+# Создаем экземпляр радио
+radio = Radio()
 
-    # Включаем радио
-    radio.turn_on()
+# Включаем радио
+radio.turn_on()
 
-    # Настраиваем на станцию 101.5
-    radio.tune_to_station(101.5)
+# Настраиваем на станцию 101.5
+radio.tune_to_station(101.5)
 
-    # Выключаем радио
-    radio.turn_off()
+# Выключаем радио
+radio.turn_off()

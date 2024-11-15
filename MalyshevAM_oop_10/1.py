@@ -7,78 +7,78 @@ class SplitSystem:
     def turn_on(self):
         if not self.is_on:
             self.is_on = True
-            self.mode = "cooling"
+            self.mode = "cool"
             self.temperature = 22  # Начальная температура
-            print("Split system turned on. Mode: cooling, Temperature: 22°C")
+            print("Сплит-система включена. Режим: cool, Температура: 22°C")
         else:
-            print("Split system is already on.")
+            print("Сплит-система уже включена.")
 
     def turn_off(self):
         if self.is_on:
             self.is_on = False
-            print("Split system turned off.")
+            print("Сплит-система выключена.")
         else:
-            print("Split system is already off.")
+            print("Сплит-система уже выключена.")
 
     def set_cooling_temperature(self, temperature):
-        if self.is_on and self.mode == "cooling":
+        if self.is_on and self.mode == "cool":
             self.temperature = temperature
-            print(f"Cooling temperature set to {temperature}°C.")
+            print(f"Температура охлаждения установлена на {temperature}°C.")
         else:
-            print("Cannot set cooling temperature. The system is either off or not in cooling mode.")
+            print("Невозможно установить температуру охлаждения. Сплит-система либо выключена, либо не в режиме охлаждения.")
 
     def turn_on_cooling(self):
         if not self.is_on:
             self.turn_on()
-        elif self.mode != "cooling":
-            self.mode = "cooling"
-            print("Mode switched to cooling.")
+        elif self.mode != "cool":
+            self.mode = "cool"
+            print("Режим переключен на cool.")
         else:
-            print("System is already in cooling mode.")
+            print("Система уже в режиме охлаждения.")
 
     def turn_off_cooling(self):
-        if self.is_on and self.mode == "cooling":
+        if self.is_on and self.mode == "cool":
             self.turn_off()
         else:
-            print("Cannot turn off cooling. The system is either off or not in cooling mode.")
+            print("Невозможно выключить режим охлаждения. Сплит-система либо выключена, либо не в режиме охлаждения.")
 
     def turn_on_heating(self):
         if not self.is_on:
             self.is_on = True
-            self.mode = "heating"
+            self.mode = "обогрев"
             self.temperature = 25  # Начальная температура для обогрева
-            print("Split system turned on. Mode: heating, Temperature: 25°C")
-        elif self.mode != "heating":
-            self.mode = "heating"
-            print("Mode switched to heating.")
+            print("Сплит-система включена. Режим: обогрев, Температура: 25°C")
+        elif self.mode != "обогрев":
+            self.mode = "обогрев"
+            print("Режим переключен на обогрев.")
         else:
-            print("System is already in heating mode.")
+            print("Система уже в режиме обогрева.")
 
     def turn_off_heating(self):
-        if self.is_on and self.mode == "heating":
+        if self.is_on and self.mode == "обогрев":
             self.turn_off()
         else:
-            print("Cannot turn off heating. The system is either off or not in heating mode.")
+            print("Невозможно выключить режим обогрева. Сплит-система либо выключена, либо не в режиме обогрева.")
 
 
 # Пример использования класса SplitSystem
-if __name__ == "__main__":
-    split_system = SplitSystem()
-    
-    # Включение сплит-системы
-    split_system.turn_on()
-    
-    # Установка температуры охлаждения
-    split_system.set_cooling_temperature(18)
-    
-    # Включение режима обогрева
-    split_system.turn_on_heating()
-    
-    # Отключение режима обогрева
-    split_system.turn_off_heating()
-    
-    # Включение режима охлаждения
-    split_system.turn_on_cooling()
-    
-    # Отключение системы
-    split_system.turn_off()
+
+split_system = SplitSystem()
+
+# Включение сплит-системы
+split_system.turn_on()
+
+# Установка температуры охлаждения
+split_system.set_cooling_temperature(18)
+
+# Включение режима обогрева
+split_system.turn_on_heating()
+
+# Отключение режима обогрева
+split_system.turn_off_heating()
+
+# Включение режима охлаждения
+split_system.turn_on_cooling()
+
+# Отключение системы
+split_system.turn_off()

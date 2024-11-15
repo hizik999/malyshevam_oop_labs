@@ -1,40 +1,39 @@
 class SeparateText:
     def __init__(self, text):
-        print("Старт инициализатора в классе SeparateText.__init__()")
+        print("Старт инициализатора в классе SeparateText")
         self.splitword = text.split()
-        print("Конец инициализатора в классе SeparateText.__init__()")
+        print("Конец инициализатора в классе SeparateText")
 
 
 class CountWorld(SeparateText):
     def __init__(self, text):
-        print("Старт инициализатора в классе CountWorld.__init__()")
+        print("Старт инициализатора в классе CountWorld")
         super().__init__(text)
         self.word_count = len(self.splitword)
-        print("Конец инициализатора в классе CountWorld.__init__()")
+        print("Конец инициализатора в классе CountWorld")
 
 
 class Unique(SeparateText):
     def __init__(self, text):
-        print("Старт инициализатора в классе Unique.__init__()")
+        print("Старт инициализатора в классе Unique")
         super().__init__(text)
         self.unic = set(text)
-        print("Конец инициализатора в классе Unique.__init__()")
+        print("Конец инициализатора в классе Unique")
 
 
 class Describer(CountWorld, Unique):
     def __init__(self, text):
-        print("Старт инициализатора в классе Describer.__init__()")
-        CountWorld.__init__(self, text)
-        Unique.__init__(self, text)
-        print("Конец инициализатора в классе Describer.__init__()")
+        print("Старт инициализатора в классе Describer")
+        super().__init__(text)
+        print("Конец инициализатора в классе Describer")
 
-    def print(self):
+    def print_info(self):
         print("Список слов:", self.splitword)
         print("Количество слов:", self.word_count)
-        print("Множество уникальных символов:", self.unic)
+        print("Уникальные символы:", self.unic)
 
 
 # Пример использования
-text = "Hello world! Hello Python!"
+text = "Пример текста для обработки текста"
 describer = Describer(text)
-describer.print()
+describer.print_info()

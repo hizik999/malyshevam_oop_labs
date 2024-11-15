@@ -1,7 +1,14 @@
-class Sedan:
+class Vehicle:
     def __init__(self, **kwargs):
-        self._doors = kwargs.pop('doors', None)
-        self._engine_type = kwargs.pop('engine_type', None)
+        print("Инициализация транспорта")
+        super().__init__(**kwargs)
+
+
+class Sedan(Vehicle):
+    def __init__(self, doors, engine_type, **kwargs):
+        print("Инициализация седана")
+        self._doors = doors
+        self._engine_type = engine_type
         super().__init__(**kwargs)
 
     @property
@@ -21,15 +28,16 @@ class Sedan:
         self._engine_type = value
 
     def start_engine(self):
-        print("Engine started in Sedan")
+        print("Двигатель седана запущен.")
 
     def accelerate(self):
-        print("Sedan is accelerating")
+        print("Седан ускоряется.")
 
 
-class SUV:
-    def __init__(self, **kwargs):
-        self._cargo_space = kwargs.pop('cargo_space', None)
+class SUV(Vehicle):
+    def __init__(self, cargo_space, **kwargs):
+        print("Инициализация внедорожника")
+        self._cargo_space = cargo_space
         super().__init__(**kwargs)
 
     @property
@@ -41,18 +49,19 @@ class SUV:
         self._cargo_space = value
 
     def start_engine(self):
-        print("Engine started in SUV")
+        print("Двигатель внедорожника запущен.")
 
     def accelerate(self):
-        print("SUV is accelerating")
+        print("Внедорожник ускоряется.")
 
     def brake(self):
-        print("SUV is braking")
+        print("Внедорожник тормозит.")
 
 
-class Hatchback:
-    def __init__(self, **kwargs):
-        self._transmission = kwargs.pop('transmission', None)
+class Hatchback(Vehicle):
+    def __init__(self, transmission, **kwargs):
+        print("Инициализация хэтчбека")
+        self._transmission = transmission
         super().__init__(**kwargs)
 
     @property
@@ -64,34 +73,33 @@ class Hatchback:
         self._transmission = value
 
     def start_engine(self):
-        print("Engine started in Hatchback")
+        print("Двигатель хэтчбека запущен.")
 
     def accelerate(self):
-        print("Hatchback is accelerating")
+        print("Хэтчбек ускоряется.")
 
     def start_transmission(self):
-        print("Transmission started in Hatchback")
+        print("Трансмиссия хэтчбека включена.")
 
 
 class Car(Sedan, SUV, Hatchback):
     def __init__(self, doors, engine_type, cargo_space, transmission):
-        print("Initializing Car...")
+        print("Инициализация автомобиля...")
         super().__init__(doors=doors, engine_type=engine_type, cargo_space=cargo_space, transmission=transmission)
-        print("Car initialized")
+        print("Автомобиль инициализирован.")
 
     def drive(self):
-        print("Driving the car:")
         self.start_engine()
         self.start_transmission()
         self.accelerate()
         self.brake()
 
+    def display_info(self):
+        print(f"Двери: {self.doors}, Тип двигателя: {self.engine_type}, Багажное пространство: {self.cargo_space}, Трансмиссия: {self.transmission}")
 
-# Тестирование работы классов
+
+# Тестирование
 if __name__ == "__main__":
-    car = Car(4, "Petrol", "Large", "Automatic")
+    car = Car(doors=4, engine_type="Бензиновый", cargo_space="Большой", transmission="Автомат")
     car.drive()
-    print("Doors:", car.doors)
-    print("Engine Type:", car.engine_type)
-    print("Cargo Space:", car.cargo_space)
-    print("Transmission:", car.transmission)
+    car.display_info()
